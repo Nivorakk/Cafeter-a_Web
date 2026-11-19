@@ -1,5 +1,12 @@
 # Cafetería Sobremesa
 
+<p align="center">
+  <img src="capturas/portada-ordenador.png" alt="Portada de la web de Cafetería Sobremesa en ordenador" width="620">
+  <img src="capturas/portada-movil.png" alt="Portada de la web de Cafetería Sobremesa en móvil" width="178">
+</p>
+
+<p align="center"><strong><a href="https://nivorakk.github.io/Cafeter-a_Web/">Ver la web</a></strong></p>
+
 Web de una cafetería ficticia en San Juan de Alicante, inspirada en las cafeterías españolas de los años 80: tonos nata y pastel, suelo de terrazo, rayas de la época y un letrero de neón que se enciende al entrar.
 
 Todos los datos (nombre, dirección, teléfono, precios y ponentes) son inventados.
@@ -39,6 +46,7 @@ assets/
   js/main.js         interacción
   img/terrazo.svg    textura de terrazo
   img/favicon.svg    icono
+capturas/            capturas de la web e imagen de vista previa (vista-previa.png, 1280 × 640)
 ```
 
 ## Notas técnicas
