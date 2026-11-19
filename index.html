@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cafetería Sobremesa | San Juan de Alicante</title>
+  <meta name="description" content="Cafetería de barrio en San Juan de Alicante desde 1984. Café tostado en Alicante, bollería de obrador propio y tardes de charla sobre salud para mujeres y para hombres.">
+  <meta name="theme-color" content="#F8F0E1">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:title" content="Cafetería Sobremesa, San Juan de Alicante">
+  <meta property="og:description" content="Café tostado en Alicante, bollería de obrador propio y tiempo para hablar. Charlas de salud los martes para mujeres y los jueves para hombres.">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Josefin+Sans:wght@400;600;700&family=Yellowtail&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#carta">Saltar a la carta</a>
+
+  <header class="topbar">
+    <div class="topbar__inner">
+      <a class="brand" href="#inicio" aria-label="Sobremesa, inicio">Sobremesa</a>
+
+      <nav class="nav" id="nav" aria-label="Secciones">
+        <a href="#carta">Carta</a>
+        <a href="#sin-prisa">Sin prisa</a>
+        <a href="#charlas">Charlas</a>
+        <a href="#visitanos">Visítanos</a>
+      </nav>
+
+      <p class="status" id="status" data-state="loading">
+        <span class="status__dot" aria-hidden="true"></span>
+        <span class="status__long">Consultando horario</span>
+        <span class="status__short">Horario</span>
+      </p>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav">
+        <span class="nav-toggle__bars" aria-hidden="true"></span>
+        <span>Menú</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Aviso de la próxima charla: lo rellena main.js -->
+    <aside class="next-talk" id="next-talk" hidden aria-label="Próxima charla"></aside>
+
+    <section class="hero" id="inicio" aria-labelledby="hero-title">
+      <div class="hero__copy">
+        <h1 id="hero-title">Un café, algo dulce y tiempo para hablar.</h1>
+        <p class="hero__lead">
+          Cafetería de barrio en San Juan de Alicante desde 1984. Café tostado en Alicante y bollería de obrador propio,
+          recién horneada cada mañana, a precios de barrio.
+        </p>
+        <div class="hero__actions">
+          <a class="btn btn--solid" href="#carta">Ver la carta</a>
+          <a class="btn btn--ghost" href="#visitanos">Cómo llegar</a>
+        </div>
+        <ul class="price-strip" aria-label="Precios destacados">
+          <li><span>Café solo</span> <strong>1,30 €</strong></li>
+          <li><span>Croissant de mantequilla</span> <strong>1,40 €</strong></li>
+          <li><span>Café con bollo</span> <strong>0,50 € menos</strong></li>
+        </ul>
+      </div>
+
+      <div class="hero__window" aria-hidden="true">
+        <div class="arch">
+          <div class="arch__sun"></div>
+          <div class="neon">
+            <span class="neon__main">Sobremesa</span>
+            <span class="neon__open" id="neon-open">abierto</span>
+          </div>
+          <div class="counter">
+            <svg class="croissant" viewBox="0 0 160 84" role="presentation">
+              <defs>
+                <linearGradient id="hojaldre" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="#F2BC74"/>
+                  <stop offset="1" stop-color="#C98443"/>
+                </linearGradient>
+              </defs>
+              <path d="M6 68 C10 54 24 42 40 36 C50 14 110 14 120 36 C136 42 150 54 154 68 C142 66 128 62 114 61 C98 59 62 59 46 61 C32 62 18 66 6 68 Z"
+                    fill="url(#hojaldre)" stroke="#3B2A22" stroke-width="2.4" stroke-linejoin="round"/>
+              <g fill="none" stroke="#3B2A22" stroke-width="2.2" stroke-linecap="round">
+                <path d="M40 36 C47 45 49 53 46 61"/>
+                <path d="M60 22 C66 35 67 48 64 60"/>
+                <path d="M100 22 C94 35 93 48 96 60"/>
+                <path d="M120 36 C113 45 111 53 114 61"/>
+              </g>
+              <g fill="none" stroke="#FFF3DD" stroke-width="2.6" stroke-linecap="round" opacity=".8">
+                <path d="M72 24 q8 -4 16 0"/>
+                <path d="M48 36 q4 -3 8 -2"/>
+                <path d="M106 34 q4 -2 7 1"/>
+              </g>
+            </svg>
+            <svg class="cup" viewBox="0 0 220 150" role="presentation">
+              <defs>
+                <clipPath id="cuerpo-taza">
+                  <path d="M52 56 H168 C166 92 152 116 128 120 H92 C68 116 54 92 52 56 Z"/>
+                </clipPath>
+              </defs>
+              <g class="steam" fill="none" stroke="#FFFAF2" stroke-width="4" stroke-linecap="round">
+                <path d="M92 40 c-8 -10 8 -16 0 -28"/>
+                <path d="M112 42 c-8 -12 8 -18 0 -34"/>
+                <path d="M132 40 c-8 -10 8 -16 0 -28"/>
+              </g>
+              <ellipse cx="110" cy="128" rx="96" ry="15" fill="#FFFAF2" stroke="#3B2A22" stroke-width="2.4"/>
+              <ellipse cx="110" cy="125" rx="54" ry="7" fill="none" stroke="#3B2A22" stroke-opacity=".25" stroke-width="2"/>
+              <path d="M164 66 C196 62 198 100 158 104" fill="none" stroke="#3B2A22" stroke-width="11" stroke-linecap="round"/>
+              <path d="M164 66 C196 62 198 100 158 104" fill="none" stroke="#FFFAF2" stroke-width="5.5" stroke-linecap="round"/>
+              <path d="M52 56 H168 C166 92 152 116 128 120 H92 C68 116 54 92 52 56 Z" fill="#FFFAF2"/>
+              <g clip-path="url(#cuerpo-taza)">
+                <rect x="40" y="72" width="140" height="11" fill="#A9D6C5"/>
+                <rect x="40" y="87" width="140" height="4" fill="#F3C9A9"/>
+              </g>
+              <path d="M52 56 H168 C166 92 152 116 128 120 H92 C68 116 54 92 52 56 Z" fill="none" stroke="#3B2A22" stroke-width="2.4" stroke-linejoin="round"/>
+              <ellipse cx="110" cy="56" rx="58" ry="9" fill="#FFFAF2" stroke="#3B2A22" stroke-width="2.4"/>
+              <ellipse cx="110" cy="57" rx="50" ry="6" fill="#7A4A30"/>
+              <ellipse cx="100" cy="56" rx="16" ry="2.2" fill="#C99A6E" opacity=".8"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="stripes" aria-hidden="true"></div>
+
+    <!-- CARTA -->
+    <section class="section carta" id="carta" aria-labelledby="carta-title">
+      <div class="section__head">
+        <h2 id="carta-title">La carta</h2>
+        <p>Toca una bebida y un bollo: te decimos cuánto sale tu desayuno, con 0,50 € de descuento por pedirlos juntos.</p>
+      </div>
+
+      <div class="carta__tools">
+        <button class="toggle" id="filtro-casa" type="button" aria-pressed="false">
+          <span class="toggle__track" aria-hidden="true"><span class="toggle__thumb"></span></span>
+          Ver solo lo que no encontrarás en otro sitio
+        </button>
+      </div>
+
+      <div class="carta__cols">
+        <div class="carta__col">
+          <h3 class="carta__col-title">Cafés y algo calentito</h3>
+          <ul class="menu-list" id="lista-bebidas" data-tipo="bebida"></ul>
+        </div>
+        <div class="carta__col">
+          <h3 class="carta__col-title">Bollería de obrador</h3>
+          <ul class="menu-list" id="lista-bolleria" data-tipo="bollo"></ul>
+        </div>
+      </div>
+
+      <p class="carta__note"><span class="tag">Solo aquí</span> Recetas de la casa que no encontrarás en otra cafetería de San Juan.</p>
+    </section>
+
+    <!-- SIN PRISA -->
+    <section class="section calma" id="sin-prisa" aria-labelledby="calma-title">
+      <div class="calma__text">
+        <h2 id="calma-title">Aquí no hay prisa</h2>
+        <p class="calma__lead">
+          Sobremesa es para sentarse. Pide algo calentito y quédate lo que haga falta, con quien quieras.
+        </p>
+        <ul class="calma__list">
+          <li>Música a volumen de conversación</li>
+          <li>Sin televisión</li>
+          <li>Butacas cómodas y mesas con espacio entre ellas</li>
+          <li>Agua para la mesa sin que la pidas</li>
+          <li>Con un café puedes quedarte toda la tarde</li>
+        </ul>
+      </div>
+
+      <div class="talk-card" aria-labelledby="cartas-title">
+        <h3 id="cartas-title">¿De qué hablamos hoy?</h3>
+        <p class="talk-card__hint">Elige con quién vienes y saca una carta.</p>
+        <div class="chips" role="group" aria-label="¿Con quién vienes?">
+          <button class="chip" type="button" data-modo="amistad" aria-pressed="true">Amistad</button>
+          <button class="chip" type="button" data-modo="familia" aria-pressed="false">Familia</button>
+          <button class="chip" type="button" data-modo="pareja" aria-pressed="false">Pareja</button>
+        </div>
+        <div class="deck">
+          <div class="deck__card" id="carta-pregunta" aria-live="polite">
+            <p class="deck__q">Toca “Sacar carta” para empezar.</p>
+          </div>
+        </div>
+        <button class="btn btn--solid" type="button" id="sacar-carta">Sacar carta</button>
+      </div>
+    </section>
+
+    <!-- CHARLAS -->
+    <section class="section charlas" id="charlas" aria-labelledby="charlas-title">
+      <div class="section__head">
+        <h2 id="charlas-title">Dos tardes para hablar de salud</h2>
+        <p>
+          Los martes, para mujeres. Los jueves, para hombres. De 19:00 a 21:00, en el salón del fondo,
+          con una profesional o un profesional de la salud.
+        </p>
+      </div>
+
+      <div class="days" role="tablist" aria-label="Elige la tarde">
+        <button class="day" role="tab" type="button" id="tab-ellas" aria-controls="panel-ellas" aria-selected="true" data-grupo="ellas">
+          <span class="day__name">Martes</span>
+          <span class="day__title">Entre nosotras</span>
+          <span class="day__who">Para mujeres, de 19:00 a 21:00</span>
+        </button>
+        <button class="day" role="tab" type="button" id="tab-ellos" aria-controls="panel-ellos" aria-selected="false" tabindex="-1" data-grupo="ellos">
+          <span class="day__name">Jueves</span>
+          <span class="day__title">Entre nosotros</span>
+          <span class="day__who">Para hombres, de 19:00 a 21:00</span>
+        </button>
+      </div>
+
+      <div class="panel panel--ellas" id="panel-ellas" role="tabpanel" aria-labelledby="tab-ellas" tabindex="0">
+        <p class="panel__intro">
+          Menopausia, suelo pélvico, sueño, alimentación… Temas que nos afectan cada día y de los que se habla poco.
+          Dos horas para entenderlos, preguntar y salir con ideas claras.
+        </p>
+        <ol class="sessions" id="sesiones-ellas"></ol>
+      </div>
+
+      <div class="panel panel--ellos" id="panel-ellos" role="tabpanel" aria-labelledby="tab-ellos" tabindex="0" hidden>
+        <p class="panel__intro">
+          Próstata, corazón, estrés, sueño… Revisiones que se retrasan y preguntas que no se hacen.
+          Dos horas para entenderlas, preguntar y salir con ideas claras.
+        </p>
+        <ol class="sessions" id="sesiones-ellos"></ol>
+      </div>
+
+      <ul class="rules">
+        <li><strong>Gratis</strong> con tu consumición</li>
+        <li><strong>20 plazas</strong> con reserva previa</li>
+        <li><strong>2,50 €</strong> café o infusión con bollo durante la charla</li>
+        <li><strong>Pregunta anónima</strong> opcional al reservar</li>
+      </ul>
+      <p class="charlas__rule">Hablamos de salud, no de política. Sin debates: venimos a aprender, a preguntar y a escucharnos.</p>
+    </section>
+
+    <!-- VISÍTANOS -->
+    <section class="section visita" id="visitanos" aria-labelledby="visita-title">
+      <div class="visita__card">
+        <div class="visita__info">
+          <h2 id="visita-title">Visítanos</h2>
+          <address>
+            Calle de la Huerta, 12<br>
+            03550 San Juan de Alicante
+          </address>
+          <p class="visita__phone"><a href="tel:+34965940184">965 94 01 84</a></p>
+          <ul class="visita__extras">
+            <li>A cinco minutos a pie del Ayuntamiento</li>
+            <li>Terraza con toldo</li>
+            <li>Acceso sin escalones y baño adaptado</li>
+          </ul>
+        </div>
+        <div class="visita__hours">
+          <h3>Horario</h3>
+          <table class="hours" id="horario">
+            <caption class="visually-hidden">Horario de apertura</caption>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <p class="footer__brand">Sobremesa</p>
+      <p>Café, bollería y buena conversación en San Juan de Alicante desde 1984.</p>
+      <p class="footer__note">Web de demostración con datos ficticios.</p>
+    </div>
+  </footer>
+
+  <!-- Ticket del desayuno -->
+  <div class="ticket" id="ticket" aria-live="polite" hidden>
+    <div class="ticket__body">
+      <p class="ticket__items" id="ticket-items"></p>
+      <p class="ticket__hint" id="ticket-hint"></p>
+    </div>
+    <p class="ticket__total" id="ticket-total"></p>
+    <button class="ticket__clear" id="ticket-clear" type="button">Vaciar</button>
+  </div>
+
+  <!-- Reserva de plaza -->
+  <dialog class="dialog" id="reserva" aria-labelledby="reserva-title">
+    <form class="dialog__form" id="reserva-form" method="dialog" novalidate>
+      <button class="dialog__close" type="button" data-close aria-label="Cerrar">×</button>
+      <div class="dialog__step" data-step="form">
+        <h2 id="reserva-title">Reservar plaza</h2>
+        <p class="dialog__session" id="reserva-sesion"></p>
+        <div class="field">
+          <label for="r-nombre">Nombre</label>
+          <input id="r-nombre" name="nombre" type="text" autocomplete="given-name" required>
+          <p class="field__error" id="r-nombre-error" hidden></p>
+        </div>
+        <div class="field">
+          <label for="r-telefono">Teléfono</label>
+          <input id="r-telefono" name="telefono" type="tel" inputmode="tel" autocomplete="tel" required>
+          <p class="field__error" id="r-telefono-error" hidden></p>
+        </div>
+        <div class="field">
+          <label for="r-pregunta">Pregunta anónima <span class="field__opt">(opcional)</span></label>
+          <textarea id="r-pregunta" name="pregunta" rows="3"></textarea>
+          <p class="field__help">Si prefieres no preguntar en voz alta, escríbela aquí. La responderemos en la charla sin decir tu nombre.</p>
+        </div>
+        <button class="btn btn--solid btn--block" type="submit">Reservar plaza</button>
+      </div>
+      <div class="dialog__step" data-step="ok" hidden>
+        <h2>Plaza reservada</h2>
+        <p id="reserva-ok"></p>
+        <button class="btn btn--solid btn--block" type="button" data-close>Cerrar</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
